@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <img src="images/logo.webp" class="logo"/>
+    <h2>Iniciar sesión</h2>
+    <form id="login-form" action="login.php" method="post">
+        <input type="text" id="username" name="username" placeholder="Nombre de usuario" required>
+        <input type="password" id="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Iniciar sesión</button>
+    </form>
+    <p>No tienes una cuenta? <a href="registro.html">Regístrate aquí</a>.</p>
+</div>
+
+<script src="scriptLogin.js"></script>
+</body>
+</html>

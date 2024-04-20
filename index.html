@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda</title>
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="header-top">
+        <div class="top-1"> T&eacute;lefono: <a href="tel:3112586589" class="head-link">3112586589</a></div>
+        <div class="top-2">
+            <ul>
+                <li><a href="https://web.whatsapp.com/" class="social"><img src="images/whatsapp.png"></a></li>
+                <li><a href="https://facebook.com/" class="social"><img src="images/facebook.png"></a></li>
+                <li><a href="https://instagram.com/" class="social"><img src="images/instagram.png"></a></li>
+                <button id="abrir-carrito"><img src="images/shopping-cart.png" class="cart-img"></button>
+            </ul>
+        </div>
+        <div class="top-3">Email: <a href="mailto:contacto@tienda.com" class="head-link">contacto@tienda.com</a></div>
+    </section>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.webp" class="logo"/></a>
+        </div>
+        <div class="menu">
+        
+        <nav>
+          <ul>            
+            <li><a href="index.html">Productos</a></li>
+            <li><a href="contactenos.html">Contáctenos</a></li>
+          </ul>
+        </nav>
+        </div>
+      </header>
+        <main>
+        <h1 class="title-page">Tecnología<span>.</span></h1>
+        <section class="productos">
+          <article class="producto">
+            <img src="images/producto1.webp" alt="All In One Lenovo Neo 30a" class="img-produucto">
+            <h2>All In One Lenovo Neo 30a</h2>
+            <p>$ <span>3.099.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+          <article class="producto">
+            <img src="images/producto2.webp" alt="Monitor gamer LG 22" class="img-produucto">
+            <h2>Monitor gamer LG 22</h2>
+            <p>$ <span>379.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+          <article class="producto">
+            <img src="images/producto3.webp" alt="Monitor 29'' 21:9 Ultrawide Full Hd" class="img-produucto">
+            <h2>Monitor 29'' 21:9 Ultrawide Full Hd</h2>
+            <p>$ <span>1.129.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+          <article class="producto">
+            <img src="images/producto4.webp" alt="Antena Wi-fi Doble Banda Usb" class="img-produucto">
+            <h2>Antena Wi-fi Doble Banda Usb</h2>
+            <p>$ <span>203.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+
+          <article class="producto">
+            <img src="images/producto5.webp" alt="Portátil Lenovo 15alc7 Ryzen 5" class="img-produucto">
+            <h2>Portátil Lenovo 15alc7 Ryzen 5</h2>
+            <p>$ <span>2.299.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+          <article class="producto">
+            <img src="images/producto6.webp" alt="Hp All In One 22" class="img-produucto">
+            <h2>Hp All In One 22</h2>
+            <p>$ <span>1.749.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+          <article class="producto">
+            <img src="images/producto7.webp" alt="Portátil Lenovo Ryzen 5 5600h" class="img-produucto">
+            <h2>Portátil Lenovo Ryzen 5 5600h</h2>
+            <p>$ <span>2.800.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+          <article class="producto">
+            <img src="images/producto8.webp" alt="Monitor Samsung 32 Curvo" class="img-produucto">
+            <h2>Monitor Samsung 32 Curvo</h2>
+            <p>$ <span>919.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+
+          <article class="producto">
+            <img src="images/producto9.webp" alt="Monitor Gaming LG 27" class="img-produucto">
+            <h2>Monitor Gaming LG 27</h2>
+            <p>$ <span>1.300.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+          <article class="producto">
+            <img src="images/producto10.webp" alt="Monitor Samsung 32 Ls" class="img-produucto">
+            <h2>Monitor Samsung 32 Ls</h2>
+            <p>$ <span>830.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+          <article class="producto">
+            <img src="images/producto11.webp" alt="Camara Web Full Hd Logitech C922" class="img-produucto">
+            <h2>Camara Web Full Hd Logitech C922</h2>
+            <p>$ <span>289.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+          <article class="producto">
+            <img src="images/producto12.webp" alt="Logitech Streamcam Plus Cámara Web" class="img-produucto">
+            <h2>Logitech Streamcam Plus Cámara Web</h2>
+            <p>$ <span>495.000</span></p>
+            <button id="comprar-btn">Agregar al carrito</button>
+          </article>
+        </section>
+        
+    <div id="carrito-popup" class="carrito-popup">
+        <div class="carrito-contenido">
+            <h2>Carrito de Compras</h2>
+            <ul id="lista-carrito">
+                <!-- Productos seleccionados se agregarán aquí dinámicamente -->
+            </ul>
+            <div id="subtotal"></div>
+            <div id="total"></div>
+            <button id="cerrar-carrito">Cerrar Carrito</button>
+            <button id="realizar-compra-btn">Realizar Compra</button>
+        </div>
+    </div>
+       
+      </main>
+      
+      <footer>
+        <p>&copy; 2024 Tienda en Línea. Todos los derechos reservados.</p>
+      </footer>
+      <script src="script.js"></script>
+</body>
+</html>
