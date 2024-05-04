@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos
-$conexion = mysqli_connect("localhost", "root", "", "usuarios");
+$conexion = mysqli_connect("localhost", "root", "", "proyecox");
 
 if ($conexion === false) {
     die("ERROR: No se pudo conectar. " . mysqli_connect_error());
@@ -20,7 +20,7 @@ if (mysqli_num_rows($resultado) > 0) {
 } else {
     // El usuario no existe, proceder con el registro
     // Consulta para insertar nuevo usuario en la base de datos
-    $sql = "INSERT INTO usuario (username, password) VALUES ('$newUsername', '$newPassword')";
+    $sql = "INSERT INTO usuario (usuario, contrasena) VALUES ('$newUsername', '$newPassword')";
 
     if (mysqli_query($conexion, $sql)) {
         // Registro exitoso

@@ -11,7 +11,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Consulta para verificar el usuario y contraseña en la base de datos
-$sql = "SELECT * FROM usuario WHERE usuario='$username' AND contraseña='$password'";
+$sql = "SELECT * FROM usuario WHERE usuario='$username' AND contrasena='$password'";
 $resultado = mysqli_query($conexion, $sql);
 
 // Verificar si la consulta devuelve algún resultado
