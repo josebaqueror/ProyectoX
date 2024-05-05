@@ -32,7 +32,7 @@ if (!move_uploaded_file($tempimagen, $rutaimagen)) {
 }     
    
  
-// Consulta para verificar si el prodecyo ya existe
+// Consulta para verificar si el producto ya existe
 $consulta = "SELECT * FROM producto WHERE referencia='$newreferencia'";
 $resultado = mysqli_query($conexion, $consulta);
 
