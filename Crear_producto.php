@@ -11,7 +11,7 @@ $newnombre_producto = $_POST [ 'nombre_producto'];
 $newprecio = $_POST ['precio'];
 $newreferencia = $_POST ['referencia'];
 $newcantidad = $_POST ['cantidad'];
-$newimage = $_POST ['imagen'];
+
 
 
     // Procesamos la imagen
@@ -19,8 +19,18 @@ $newimage = $_POST ['imagen'];
     $rutaimagen = 'images/' . $nombreimagen;
     $tempimagen = $_FILES['imagen']['tmp_name'];
     
+   // Verificamos si hay errores en la subida del archivo
+   if ($_FILES["imagen"]["error"] !== UPLOAD_ERR_OK) {
+    echo "Hubo un error al subir la imagen.";
+    exit;
+}
+
     // Movemos la imagen a la carpeta images
-    move_uploaded_file($tempimagen, $rutaimagen);
+if (!move_uploaded_file($tempimagen, $rutaimagen)) {
+    echo "Hubo un error al mover la imagen al directorio destino.";
+    exit;
+}     
+   
 
 // Consulta para verificar si el prodecyo ya existe
 $consulta = "SELECT * FROM producto WHERE referencia='$newreferencia'";
@@ -33,7 +43,7 @@ if (mysqli_num_rows($resultado) > 0) {
     
     // codigo para insertar nuevo Producto en la base de datos
     $sql = "INSERT INTO producto (id_producto, nombre_producto, precio, referencia, cantidad_producto, imagen)
-            VALUES ('NULL', '$newnombre_producto', '$newprecio','$newreferencia', '$newcantidad', '$newimage')";
+            VALUES ('NULL', '$newnombre_producto', '$newprecio','$newreferencia', '$newcantidad', '$nombreimagen')";
 
 
 
