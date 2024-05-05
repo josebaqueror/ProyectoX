@@ -30,7 +30,7 @@ if (!move_uploaded_file($tempimagen, $rutaimagen)) {
     echo "Hubo un error al mover la imagen al directorio destino.";
     exit;
 }     
-   
+
  
 // Consulta para verificar si el producto ya existe
 $consulta = "SELECT * FROM producto WHERE referencia='$newreferencia'";
@@ -43,7 +43,7 @@ if (mysqli_num_rows($resultado) > 0) {
     
     // codigo para insertar nuevo Producto en la base de datos
     $sql = "INSERT INTO producto (id_producto, nombre_producto, precio, referencia, cantidad_producto, imagen)
-            VALUES ('NULL', '$newnombre_producto', '$newprecio','$newreferencia', '$newcantidad', '$nombreimagen')";
+            VALUES ('NULL', '$newnombre_producto', '$newprecio','$newreferencia', '$newcantidad', 'images/$nombreimagen')";
 
 
 
@@ -57,6 +57,9 @@ if (mysqli_num_rows($resultado) > 0) {
         echo "Error al registrar usuario: " . mysqli_error($conexion);
     }
 }
+
+
+
 
 // Cerrar conexión
 mysqli_close($conexion);
