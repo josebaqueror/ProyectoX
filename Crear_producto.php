@@ -18,20 +18,20 @@ $newcantidad = $_POST ['cantidad'];
     $nombreimagen = $_FILES['imagen']['name'];
     $rutaimagen = 'images/' . $nombreimagen;
     $tempimagen = $_FILES['imagen']['tmp_name'];
-    
+
    // Verificamos si hay errores en la subida del archivo
    if ($_FILES["imagen"]["error"] !== UPLOAD_ERR_OK) {
     echo "Hubo un error al subir la imagen.";
     exit;
 }
 
-    // Movemos la imagen a la carpeta images
+// Movemos la imagen a la carpeta images
 if (!move_uploaded_file($tempimagen, $rutaimagen)) {
     echo "Hubo un error al mover la imagen al directorio destino.";
     exit;
 }     
    
-
+ 
 // Consulta para verificar si el prodecyo ya existe
 $consulta = "SELECT * FROM producto WHERE referencia='$newreferencia'";
 $resultado = mysqli_query($conexion, $consulta);
