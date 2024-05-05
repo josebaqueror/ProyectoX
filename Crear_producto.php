@@ -48,13 +48,13 @@ if (mysqli_num_rows($resultado) > 0) {
 
 
     if (mysqli_query($conexion, $sql)) {
-        // Registro exitoso
+        // creacion  exitosa
         echo "¡Creacion exitosa para el producto $newreferencia!";
         header("Location: Crear_producto.html");
     exit; 
     } else {
-        // Error en el registro
-        echo "Error al registrar usuario: " . mysqli_error($conexion);
+        // Error en la creacion
+        echo "Error al crear el producto: " . mysqli_error($conexion);
     }
 }
 
