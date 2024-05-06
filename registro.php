@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos
-$conexion = mysqli_connect("localhost", "root", "", "usuarios");
+$conexion = mysqli_connect("localhost", "root", "", "proyectox");
 
 if ($conexion === false) {
     die("ERROR: No se pudo conectar. " . mysqli_connect_error());

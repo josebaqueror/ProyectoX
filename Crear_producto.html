@@ -3,33 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>registro</title>
+    <title>Crear Producto</title>
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <img src="images/logo.webp" class="logo"/>
-            <h1>Crear Producto</h2>
-                <form id ="Crear_pruducto-from" action = "Crear_producto.php" method="POST">
-                <label for="nombre_pruducto">nombre pruducto</label>
-                <input type = "text" id = "nombre_pruducto" name="nombre_pruducto" class = "form-input" required/>
-                <br>
-                <label for="precio">precio producto</label>
-                <input type = "text" id = "precio" name="precio" class = "form-input" required/>
-                <br>
-                <label for="referencia">referencia</label>
-                <input type = "text" id = "referencia" name="referencia" class = "form-input" required/>
-                <br>
-                <label for="cantidad">cantidad proucto</label>
-                <input type = "text" id = "cantidad" name="cantidad" class = "form-input" required/>
-                <br>
-                <button type="submit">Crear</button>
-                
-               
+        <img src="images/logo.webp" class="logo">
+        <h1>Crear Producto</h1>
+        <form id="Crear_producto-form" action="Crear_producto.php" method="POST" enctype="multipart/form-data">
+            
+            <table>
+                <tr>
+                    <td><label for="nombre_producto">Nombre del producto:</label></td>
+                    <td><input type="text" id="nombre_producto" name="nombre_producto" class="form-input" required></td>
+                </tr>
+                <tr>
+                    <td><label for="precio">Precio del producto:</label></td>
+                    <td><input type="text" id="precio" name="precio" class="form-input" required></td>
+                </tr>
+                <tr>
+                    <td><label for="referencia">Referencia:</label></td>
+                    <td><input type="text" id="referencia" name="referencia" class="form-input" required></td>
+                </tr>
+                <tr>
+                    <td><label for="cantidad">Cantidad del producto:</label></td>
+                    <td><input type="text" id="cantidad" name="cantidad" class="form-input" required></td>
+                </tr>
 
-</div>
+            <tr>
 
-<script src="scriptLogin.js"></script>
+                <td><label for="imagen">Imagen del Producto:</label><br></td>
+                <td><input type="file" id="imagen" name="imagen" accept="image/*" required><br><br></td>
+                 </tr>
+
+
+            </table>
+            <button type="submit">Crear</button>
+       </form>
+    </div>
+   
+
+    <script src="scriptLogin.js"></script>
 </body>
 </html>
