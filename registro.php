@@ -11,7 +11,7 @@ $newUsername = $_POST['new-username'];
 $newPassword = $_POST['new-password'];
 
 // Consulta para verificar si el usuario ya existe
-$consulta = "SELECT * FROM usuario WHERE username='$newUsername'";
+$consulta = "SELECT * FROM usuario WHERE usuario='$newUsername'";
 $resultado = mysqli_query($conexion, $consulta);
 
 if (mysqli_num_rows($resultado) > 0) {
@@ -20,7 +20,7 @@ if (mysqli_num_rows($resultado) > 0) {
 } else {
     // El usuario no existe, proceder con el registro
     // Consulta para insertar nuevo usuario en la base de datos
-    $sql = "INSERT INTO usuario (username, password) VALUES ('$newUsername', '$newPassword')";
+    $sql = "INSERT INTO usuario (usuario, contrasena) VALUES ('$newUsername', '$newPassword')";
 
     if (mysqli_query($conexion, $sql)) {
         // Registro exitoso
