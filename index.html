@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda</title>
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="icon" type="image/png" href="images/logo.webp">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <section class="header-top">
-        <div class="top-1"> T&eacute;lefono: <a href="tel:3112586589" class="head-link">3112586589</a></div>
-        <div class="top-2">
-            <ul>
-                <li><a href="https://web.whatsapp.com/" class="social"><img src="images/whatsapp.png"></a></li>
-                <li><a href="https://facebook.com/" class="social"><img src="images/facebook.png"></a></li>
-                <li><a href="https://instagram.com/" class="social"><img src="images/instagram.png"></a></li>
-                <button id="abrir-carrito"><img src="images/shopping-cart.png" class="cart-img"></button>
-            </ul>
-        </div>
-        <div class="top-3">Email: <a href="mailto:contacto@tienda.com" class="head-link">contacto@tienda.com</a></div>
-    </section>
+  <section class="header-top">
+    <div class="top-1">Télefono: <a href="tel:3112586589" class="head-link">3112586589</a></div>
+    <div class="top-2">
+      <ul>
+        <li><a href="https://web.whatsapp.com/" class="social"><img src="images/whatsapp.png" alt="WhatsApp"></a></li>
+        <li><a href="https://facebook.com/" class="social"><img src="images/facebook.png" alt="Facebook"></a></li>
+        <li><a href="https://instagram.com/" class="social"><img src="images/instagram.png" alt="Instagram"></a></li>
+        <li><button id="abrir-carrito"><img src="images/shopping-cart.png" class="cart-img" alt="Carrito"></button></li>
+      </ul>
+    </div>
+    <div class="top-3">Email: <a href="mailto:contacto@tienda.com" class="head-link">contacto@tienda.com</a></div>
+  </section>
     <header>
         <div class="logo">
             <a href="index.html"><img src="images/logo.webp" class="logo"/></a>
@@ -142,5 +142,35 @@
         <p>&copy; 2024 Tienda en Línea. Todos los derechos reservados.</p>
       </footer>
       <script src="script.js"></script>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', () => { const abrirCarrito = document.getElementById('abrir-carrito');
+          const cerrarCarrito = document.getElementById('cerrar-carrito');
+          const carritoPopup = document.getElementById('carrito-popup');
+    
+          abrirCarrito.addEventListener('click', () => {
+            carritoPopup.style.display = 'flex';
+          });
+    
+          cerrarCarrito.addEventListener('click', () => {
+            carritoPopup.style.display = 'none';
+          });
+    
+          const productos = document.querySelectorAll('.producto');
+    
+          productos.forEach(producto => {
+            const comprarBtn = producto.querySelector('.comprar-btn');
+            const nombreProducto = producto.querySelector('h2').innerText;
+            const precioProducto = producto.querySelector('span').innerText;
+    
+            comprarBtn.addEventListener('click', () => {
+              const listaCarrito = document.getElementById('lista-carrito');
+              const nuevoItem = document.createElement('li');
+              nuevoItem.innerHTML = `${nombreProducto} - $${precioProducto}`;
+              listaCarrito.appendChild(nuevoItem);
+            });
+          });
+        });
+      </script>
 </body>
 </html>
