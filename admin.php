@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bienvenido Administrador</title>
-  <link rel="icon" type="image/icon" href="images/favicon.ico">
-
+  <link rel="icon" type="image/icon" href="images/logo.webp">
   <link rel="stylesheet" href="styleAdmin.css">
+
 </head>
 <body>
   <header>
