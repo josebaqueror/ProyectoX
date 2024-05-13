@@ -29,7 +29,7 @@ if ($result->num_rows == 1) {
 
     // Redirigir según el rol del usuario
     if ($_SESSION['role'] == 'cliente') {
-        header("Location: productos.php");
+        header("Location: index.html");
     } elseif ($_SESSION['role'] == 'administrador') {
         header("Location: admin.php");
     }
