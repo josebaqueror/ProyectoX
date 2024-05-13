@@ -18,7 +18,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // Consulta para verificar el usuario
-$sql = "SELECT * FROM usuario WHERE usuario='$username' AND contrasena='$password'";
+$sql = "SELECT * FROM usuario WHERE usuario='$username' AND contraseña='$password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows == 1) {
@@ -29,7 +29,7 @@ if ($result->num_rows == 1) {
 
     // Redirigir según el rol del usuario
     if ($_SESSION['role'] == 'cliente') {
-        header("Location: productos.php");
+        header("Location: index.html");
     } elseif ($_SESSION['role'] == 'administrador') {
         header("Location: admin.php");
     }
