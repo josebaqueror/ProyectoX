@@ -11,10 +11,10 @@
 <body>
 
     <section class="header-top">
-    <div class="top-3">
-    <div>Email: <a href="mailto:contacto@tienda.com" class="head-link">contacto@tienda.com</a></div>
-    <div>Teléfono: <a href="tel:3112586589" class="head-link">3112586589</a></div>
-    </div>
+    
+    <div class="logo">
+            <img src="images/logo.webp" width="190" height="100"/></>
+        </div>
         
         <div class="top-2">
             <ul>
@@ -27,9 +27,7 @@
         
     </section>
     <header>
-        <div class="logo">
-            <img src="images/logo.webp" width="190" height="100"/></>
-        </div>
+       
         <div class="menu">
         <nav>
           <ul>            
@@ -101,6 +99,10 @@
       
       <footer>
         <p>&copy; 2024 Tienda en Línea. Todos los derechos reservados.</p>
+        <div class="top-3">
+    <div>Email: <a href="mailto:contacto@tienda.com" class="head-link">contacto@tienda.com</a></div>
+    <div>Teléfono: <a href="tel:3112586589" class="head-link">3112586589</a></div>
+    </div>
       </footer>
       <script src="script.js"></script>
 
