@@ -21,7 +21,7 @@
                 <li><a href="https://web.whatsapp.com/" class="social"><img src="images/whatsapp.png"></a></li>
                 <li><a href="https://facebook.com/" class="social"><img src="images/facebook.png"></a></li>
                 <li><a href="https://instagram.com/" class="social"><img src="images/instagram.png"></a></li>
-                <button id="abrir-carrito"><img src="images/shopping-cart.png" class="cart-img"></button>
+                <li><button id="abrir-carrito"><img src="images/shopping-cart.png" class="cart-img"></button></li>
             </ul>
         </div>
         
