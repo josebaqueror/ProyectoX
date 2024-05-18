@@ -80,7 +80,7 @@
 
      </section>
 
-        <div id="carrito-popup" class="carrito-popup">
+     <div id="carrito-popup" class="carrito-popup">
     <div class="carrito-contenido">
       <h2>Carrito de Compras</h2>
       <ul id="lista-carrito">
