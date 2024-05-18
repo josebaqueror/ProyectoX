@@ -31,7 +31,6 @@
         <div class="menu">
         <nav>
           <ul>            
-            <li><a href="index.php">Productos</a></li>
             <li><a href="contactenos.html">Contáctenos</a></li>
             <li><a href="login.html">Inicio de sesión</a></li>
           </ul>
