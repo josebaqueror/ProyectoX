@@ -1,77 +1,83 @@
 <?php
-session_start();
+// Verificar si se reciben datos por POST
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtener los datos enviados por el cliente
+    $data = json_decode(file_get_contents("php://input"), true);
 
-// Verificar si el carrito está vacío
-if(empty($_SESSION['carrito'])) {
-    // Redirigir de vuelta a la página de productos si el carrito está vacío
-    header("Location: productos.php");
-    exit();
-}
+    // Aquí se realizaría la conexión a tu base de datos
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $database = "proyectox";
 
-// Función para calcular el subtotal del carrito
-function calcularSubtotal() {
-    $subtotal = 0;
-    foreach ($_SESSION['carrito'] as $item) {
-        $subtotal += $item['precio'];
+    // Crear conexión
+    $conn = new mysqli($servername, $username, $password, $database);
+
+    // Verificar la conexión
+    if ($conn->connect_error) {
+        die("Conexión fallida: " . $conn->connect_error);
     }
-    return $subtotal;
-}
 
-// Función para calcular el total del carrito
-function calcularTotal() {
-    $total = calcularSubtotal();
-    // Se agrega el IVA DEL 19%
-    $total += $total * 0.19;
-    return $total;
-}
+    // Iniciar una transacción
+    $conn->begin_transaction();
 
-// Aquí se realizaría la conexión a tu base de datos
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "proyectox";
+    try {
+        // Insertar la compra en la tabla compras
+        $fecha = $data["fecha"];
+        $usuarioId = $data["usuario_id"];
+        $total = $data["total"];
+        $stmtCompra = $conn->prepare("INSERT INTO compras (usuario_id, fecha, total) VALUES (?, ?, ?)");
+        $stmtCompra->bind_param("isd", $usuarioId, $fecha, $total);
+        $stmtCompra->execute();
+        $compraId = $stmtCompra->insert_id; // Obtener el ID de la compra recién insertada
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $database);
+        // Insertar los detalles de la compra en la tabla detalles_compras
+        foreach ($data["carrito"] as $producto) {
+            $productoId = $producto["id"];         
+            $cantidad = $producto["cantidad"];
+            $precioUnitario = $producto["precio"];
+            $stmtDetalles = $conn->prepare("INSERT INTO detalles_compras (compra_id, producto_id, cantidad, precio) VALUES (?, ?, ?, ?)");
+            $stmtDetalles->bind_param("iiid", $compraId, $productoId, $cantidad, $precioUnitario);
+            $stmtDetalles->execute();
 
-// Verificar la conexión
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+            $stmtActualizar = $conn->prepare("UPDATE producto SET cantidad_producto = cantidad_producto - ? WHERE referencia = ?");
+            $stmtActualizar->bind_param("ii", $cantidad, $productoId);
+            $stmtActualizar->execute();
+        }
 
-// Obtener el ID de usuario (suponiendo que tienes un sistema de autenticación de usuarios)
-$usuario_id = 1; // Supongamos que el ID del usuario actual es 1
+        // Confirmar la transacción
+        $conn->commit();
 
-// Calcular el total de la compra
-$total = calcularTotal();
-
-// Obtener la fecha actual
-$fecha = date("Y-m-d H:i:s");
-
-// Insertar la compra en la base de datos
-$sql = "INSERT INTO compras (usuario_id, fecha, total) VALUES ('$usuario_id', '$fecha', '$total')";
-
-if ($conn->query($sql) === TRUE) {
-    // Guardar los detalles de los productos comprados en otra tabla (suponiendo que tienes una tabla llamada detalles_compras)
-    $compra_id = $conn->insert_id; // Obtener el ID de la compra recién insertada
-    foreach ($_SESSION['carrito'] as $item) {
-        $producto_id = $item['id'];
-        $cantidad = 1; // Supongamos que siempre se compra una cantidad de 1 por cada producto
-        $precio = $item['precio'];
-        $sql_detalle = "INSERT INTO detalles_compras (compra_id, producto_id, cantidad, precio) VALUES ('$compra_id', '$producto_id', '$cantidad', '$precio')";
-        $conn->query($sql_detalle);
+        // Devolver una respuesta JSON de éxito
+        $response = array(
+            "success" => true,
+            "message" => "Compra realizada con éxito",
+            "compra_id" => $compraId
+        );
+    } catch (Exception $e) {
+        // Si ocurre algún error, hacer rollback y devolver una respuesta JSON de error
+        $conn->rollback();
+        $response = array(
+            "success" => false,
+            "message" => "Error al procesar la compra: " . $e->getMessage()
+        );
     }
-    
-    // Una vez que se han guardado todos los detalles de la compra, limpiar el carrito de compras
-    unset($_SESSION['carrito']);
-    
-    // Redirigir a la página de confirmación de compra
-    header("Location: confirmacion_compra.php");
-    exit();
+
+    // Cerrar la conexión
+    $conn->close();
+
+    // Devolver la respuesta como JSON
+    header('Content-Type: application/json');
+    echo json_encode($response);
 } else {
-    echo "Error al guardar la compra: " . $conn->error;
+    // Si no se recibe una solicitud POST, devolver un error
+    $response = array(
+        "success" => false,
+        "message" => "Error: Se esperaba una solicitud POST"
+    );
+    // Devolver la respuesta como JSON
+    header('Content-Type: application/json');
+    http_response_code(400); // Código de respuesta HTTP 400: Bad Request
+    echo json_encode($response);
 }
-
-// Cerrar la conexión
-$conn->close();
 ?>
