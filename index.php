@@ -98,6 +98,7 @@ $conn->close();
         <!--tabla de productos-->
         <nav>
           <ul>            
+            <li><a href="index.php">Productos</a></li>
             <li><a href="contactenos.html">Contáctenos</a></li>
           </ul>
         </nav>
