@@ -98,7 +98,5 @@ if(isset($_POST['submit'])) {
         <input type="number" id="cantidad" name="cantidad" value="<?php echo $cantidad; ?>"><br><br>
         <input type="submit" name="submit" value="Guardar Cambios" style="text-align: center; background-color: #0056b3; color:#fff; padding: 10px 7px; text-decoration: none; border-radius: 7px;">
     </form>
-    <br><br><br>
-<center><a href="editar_productos.php" style="margin-top: 120px; text-align: center; background-color: #0056b3; color:#fff; padding: 10px 7px; text-decoration: none; border-radius: 7px;">Regresar</a></center>
 </body>
 </html>

@@ -35,11 +35,8 @@ if ($result->num_rows == 1) {
     }
 } else {
     // Usuario no encontrado o credenciales incorrectas
-    echo "<body style='background-color: #1a2227; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;'><img src='images/warning.png' style='width: 120px;'/><br><br><p style='color: #fff; text-align: center;'>Usuario o contraseña incorrectos<br><br><br> <a href='login.html' style='margin-top: 120px; text-align: center; background-color: #0056b3; color:#fff; padding: 10px 7px; text-decoration: none; border-radius: 7px;'> Volver a intentarlo</a></p>";
+    echo "Usuario o contraseña incorrectos";
 }
 
 $conn->close();
 ?>
-
-
-

@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh;
   }
   
   header {
@@ -28,6 +29,7 @@ body {
   
   main {
     padding: 20px;
+    height: 100vh;
   }
   
   footer {
@@ -213,3 +215,9 @@ body {
     border: none;
 
     }
+
+  footer{
+    position: absolute;
+    bottom: 0;
+    height: 2.5rem;
+  }

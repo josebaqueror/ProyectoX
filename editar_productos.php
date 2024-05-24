@@ -47,8 +47,8 @@ $result = $conn->query($sql);
                 echo "<td style='border: 1px solid #0056b3;'>" . $row["nombre_producto"] . "</td>";
                 echo "<td style='border: 1px solid #0056b3;'>" . $row["referencia"] . "</td>";
                 echo "<td style='border: 1px solid #0056b3;'>$" . $row["precio"] . "</td>";
-                echo "<td style='border: 1px solid #0056b3;'>" . $row["cantidad_producto"] . "</td>";
-                echo "<td style='border: 1px solid #0056b3;'>" . $row["imagen"] . "</td>";
+                echo "<td style='border: 1px solid #0056b3;'>$" . $row["cantidad_producto"] . "</td>";
+                echo "<td style='border: 1px solid #0056b3;'>$" . $row["imagen"] . "</td>";
                 echo "<td style='border: 1px solid #0056b3;'><a href='editar_producto.php?id=" . $row["id_producto"] . "'>Editar</a></td>";
                 echo "</tr>";
             }

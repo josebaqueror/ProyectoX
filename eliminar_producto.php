@@ -13,6 +13,6 @@ if(isset($_POST['indice'])) {
 }
 
 // Redirigir de vuelta a la página del carrito
-header("Location: productos.php");
+header("Location: index.php");
 exit();
 ?>

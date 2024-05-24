@@ -17,7 +17,7 @@ $resultado = mysqli_query($conexion, $consulta);
 
 if (mysqli_num_rows($resultado) > 0) {
     // El usuario ya existe
-    echo "<body style='background-color: #1a2227; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;'><img src='images/warning.png' style='width: 120px;'/><br><br><p style='color: #fff; text-align: center;'>Error: El usuario '$newUsername' ya está registrado.<br><br><br> <a href='registro.html' style='margin-top: 120px; text-align: center; background-color: #0056b3; color:#fff; padding: 10px 7px; text-decoration: none; border-radius: 7px;'> Volver a intentarlo</a></p>";
+    echo "Error: El usuario '$newUsername' ya está registrado.";
 } else {
     // El usuario no existe, proceder con el registro
     // Consulta para insertar nuevo usuario en la base de datos
@@ -30,7 +30,6 @@ if (mysqli_num_rows($resultado) > 0) {
     exit; 
     } else {
         // Error en el registro
-        
         echo "Error al registrar usuario: " . mysqli_error($conexion);
     }
 }
@@ -38,3 +37,5 @@ if (mysqli_num_rows($resultado) > 0) {
 // Cerrar conexión
 mysqli_close($conexion);
 ?>
+
+

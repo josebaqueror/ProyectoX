@@ -4,37 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contáctenos</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styleIndex.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .container {
+            max-width: 100vw;
+            margin: 20px 10%;
+            padding: 50px 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        .half {
+            flex: 1;
+            padding: 20px;
+        }
+        .half img {
+            max-width: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        .half form {
+            margin-top: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+        }
+        input[type="submit"] {
+            background-color: #f30808;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 3px;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #a30d15;
+        }
+        .maps{
+            margin: 10px 10%;
+        }
+    </style>
 </head>
 <body>
-    <header class="header-top">
+    <section class="header-top">
+        <div class="top-1"> T&eacute;lefono: <a href="tel:3112586589" class="head-link">3112586589</a></div>
         <div class="top-2">
-            <a href="mailto:contacto@tienda.com">contacto@tienda.com</a>
-            <a href="tel:3112586589">3112586589</a>
+            <ul>
+                <li><a href="https://web.whatsapp.com/" class="social"><img src="images/whatsapp.png"></a></li>
+                <li><a href="https://facebook.com/" class="social"><img src="images/facebook.png"></a></li>
+                <li><a href="https://instagram.com/" class="social"><img src="images/instagram.png"></a></li>
+                <button id="abrir-carrito"><img src="images/shopping-cart2.png" class="cart-img"></button>
+                <a href="login.html" class="inicioSesion"><img src="images/usuario.png" height="30px">Login</a>
+            </ul>
         </div>
-    </header>
-    <main>
-        <section class="contact-us">
-            <h1>Contáctenos</h1>
-            <form action="submit_contact.php" method="post" class="contact-form">
-                <label for="names">Nombre:</label>
-                <input type="text" id="names" name="names" required>
+        <div class="top-3">Email: <a href="mailto:contacto@tienda.com" class="head-link">contacto@tienda.com</a></div>
+    </section>
+    <header>
+        <div class="logo">
+            <a href="productos.php"><img src="images/Logo_helpscol.webp" class="logo"/></a>
+        </div>
+        <div class="menu">        
+        <nav>
+          <ul>            
+            <li><a href="index.php">Productos</a></li>
+            <li><a href="contactenos.html">Contáctenos</a></li>
+          </ul>
+        </nav>
+        </div>
+      </header>
+      <div class="container">
+        <div class="half">
+            <img src="images/contact.avif" alt="Imagen de ejemplo">
+        </div>
+        <div class="half">
+            <h1>Contacto</h1>
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
                 
-                <label for="email">Correo electrónico:</label>
+                <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 
-                <label for="message">Mensaje:</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
                 
-                <button type="submit">Enviar</button>
+                <input type="submit" value="Enviar">
             </form>
-            <div class="contact-details">
-                <h2>Detalles de contacto</h2>
-                <p>Email: <a href="mailto:contacto@tienda.com">contacto@tienda.com</a></p>
-                <p>Teléfono: <a href="tel:3112586589">3112586589</a></p>
-                <p>Dirección: Calle , Bogota, Colombia</p>
-            </div>
-        </section>
-    </main>
+        </div>
+    </div>
+    <div class="maps">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31814.52295618733!2d-74.08654345925262!3d4.627005854499888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9c8db2fcd993%3A0xddb87a19add1f998!2sCUN%20-%20Corporaci%C3%B3n%20Unificada%20Nacional%20de%20Educaci%C3%B3n%20Superior%20-%20Sede%20A!5e0!3m2!1ses!2sco!4v1713383532162!5m2!1ses!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div> 
+<footer>
+    <p>&copy; 2024 Tienda en Línea. Todos los derechos reservados.</p>
+</footer>
 </body>
 </html>

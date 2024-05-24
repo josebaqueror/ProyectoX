@@ -12,6 +12,8 @@ $newprecio = $_POST ['precio'];
 $newreferencia = $_POST ['referencia'];
 $newcantidad = $_POST ['cantidad'];
 
+
+
     // Procesamos la imagen
     $nombreimagen = $_FILES['imagen']['name'];
     $rutaimagen = 'images/' . $nombreimagen;
@@ -28,6 +30,7 @@ if (!move_uploaded_file($tempimagen, $rutaimagen)) {
     echo "Hubo un error al mover la imagen al directorio destino.";
     exit;
 }     
+
  
 // Consulta para verificar si el producto ya existe
 $consulta = "SELECT * FROM producto WHERE referencia='$newreferencia'";
@@ -42,6 +45,8 @@ if (mysqli_num_rows($resultado) > 0) {
     $sql = "INSERT INTO producto (id_producto, nombre_producto, precio, referencia, cantidad_producto, imagen)
             VALUES ('NULL', '$newnombre_producto', '$newprecio','$newreferencia', '$newcantidad', 'images/$nombreimagen')";
 
+
+
     if (mysqli_query($conexion, $sql)) {
         // creacion  exitosa
         echo "¡Creacion exitosa para el producto $newreferencia!";
@@ -52,6 +57,10 @@ if (mysqli_num_rows($resultado) > 0) {
         echo "Error al crear el producto: " . mysqli_error($conexion);
     }
 }
+
+
+
+
 // Cerrar conexión
 mysqli_close($conexion);
 ?>
