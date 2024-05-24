@@ -68,24 +68,4 @@ table tr td{
   border: 1px solid red;
 }
   
-.producto {
-  display: flex; align-items: center; margin-bottom: 20px;
-}
-.producto img {
-  width: 100px; margin-right: 20px;
-}
-
-.link a {
-  color: #4caf50;
-  text-decoration: none;
-}
-
-.link a:hover {
-  text-decoration: underline;
-}
-
-.logoC{
-  display: block;
-  width: 30%;
-  margin: auto;  
-}
+  
